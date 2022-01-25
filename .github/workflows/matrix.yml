@@ -7,6 +7,8 @@ jobs:
     strategy:
       matrix:
         node_version: [6,8,10]
+        exclude:
+        - node_version: 8
       fail-fast: true
       max-parallel: 3
     runs-on: ubuntu-latest
