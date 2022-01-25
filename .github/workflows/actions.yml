@@ -1,6 +1,17 @@
 name: Actions Workflows
 
-on: [push]
+on:
+  repository_dispatch:
+    types: [build]
+  #schedule:
+  #  - cron: "* * * * *"
+  push:
+    branches: 
+      - master
+    #tags:
+    #  - 'v1.*'
+  pull_request: 
+    types: [closed, assigned, opened]
 
 jobs:
   run-github-actions:
@@ -12,7 +23,7 @@ jobs:
           ls -a
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKPLACE
+          echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
       - name: Checkout
         uses: actions/checkout@v1
