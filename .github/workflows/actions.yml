@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Simple JS actions
         id: greet
-        uses: actions/hello-world-javascript-action@v1.js
+        uses: actions/hello-world-javascript-action@v1
         with:
           who-to-greet: 'Albin'
       - name: Log Greeting timestamp
